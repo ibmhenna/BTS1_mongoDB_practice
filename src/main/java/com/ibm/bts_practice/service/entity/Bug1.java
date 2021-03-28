@@ -1,4 +1,4 @@
-package com.ibm.bts_practice.entity;
+package com.ibm.bts_practice.service.entity;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
