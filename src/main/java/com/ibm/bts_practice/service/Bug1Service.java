@@ -1,5 +1,8 @@
 package com.ibm.bts_practice.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +18,14 @@ public class Bug1Service {
 	public String createBug1(Bug1 bug1) {
 		Bug1 savedBug1 = bug1Repository.save(bug1);
 		return savedBug1.getId();
+	}
+
+	public List<Bug1> getBug1() {
+		return bug1Repository.findAll();
+	}
+
+	public Optional<Bug1> getBug1(String bug1Id) {
+		return bug1Repository.findById(bug1Id);
 	}
 
 }
