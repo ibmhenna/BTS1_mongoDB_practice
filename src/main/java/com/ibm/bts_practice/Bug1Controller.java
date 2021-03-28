@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -77,6 +78,16 @@ public class Bug1Controller {
 		validateModel(bindingResult);
 		bug1.setId(bug1Id);
 		bug1Service.updateBug1(bug1);
+	}
+
+	/**
+	 * deletes a bug
+	 * 
+	 * @param bug1Id
+	 */
+	@DeleteMapping("/bug1/{id}")
+	void deleteBug1(@PathVariable("id") String bug1Id) {
+		bug1Service.deleteBug1(bug1Id);
 	}
 
 }

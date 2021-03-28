@@ -7,10 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
 import com.ibm.bts_practice.service.entity.Bug1;
 import com.ibm.bts_practice.service.repo.Bug1Repository;
-
 
 @Service
 public class Bug1Service {
@@ -33,6 +31,10 @@ public class Bug1Service {
 
 	public void updateBug1(@RequestBody Bug1 bug1) {
 		bug1Repository.save(bug1);
+	}
+
+	public void deleteBug1(String bug1Id) {
+		bug1Repository.deleteById(bug1Id);
 	}
 
 }
