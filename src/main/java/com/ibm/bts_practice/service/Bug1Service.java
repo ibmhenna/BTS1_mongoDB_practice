@@ -5,9 +5,12 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 import com.ibm.bts_practice.service.entity.Bug1;
 import com.ibm.bts_practice.service.repo.Bug1Repository;
+
 
 @Service
 public class Bug1Service {
@@ -26,6 +29,10 @@ public class Bug1Service {
 
 	public Optional<Bug1> getBug1(String bug1Id) {
 		return bug1Repository.findById(bug1Id);
+	}
+
+	public void updateBug1(@RequestBody Bug1 bug1) {
+		bug1Repository.save(bug1);
 	}
 
 }

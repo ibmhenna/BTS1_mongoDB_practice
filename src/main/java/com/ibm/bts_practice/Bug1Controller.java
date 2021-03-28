@@ -9,12 +9,12 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ibm.bts_practice.service.Bug1Service;
 import com.ibm.bts_practice.service.entity.Bug1;
-
 
 @RestController
 public class Bug1Controller {
@@ -64,6 +64,19 @@ public class Bug1Controller {
 	@GetMapping("/bug1/{id}")
 	Optional<Bug1> getBug1(@PathVariable("id") String bug1Id) {
 		return bug1Service.getBug1(bug1Id);
+	}
+
+	/**
+	 * updates changes in bug
+	 * 
+	 * @param bug1Id
+	 * @param bug1
+	 */
+	@PutMapping("/bug1/{id}")
+	void updateBug1(@PathVariable("id") String bug1Id, @RequestBody Bug1 bug1, BindingResult bindingResult) {
+		validateModel(bindingResult);
+		bug1.setId(bug1Id);
+		bug1Service.updateBug1(bug1);
 	}
 
 }
